@@ -17,7 +17,7 @@ import { toggleFavoriteCurrency } from '../../store/slices/currencySlice';
 
 type TableProps = {
   rows: Array<ICurrency>;
-  favorite: Array<string>;
+  favorite?: Array<string>;
 };
 
 export const TableComponent: FC<TableProps> = ({ rows, favorite }) => {
@@ -28,7 +28,7 @@ export const TableComponent: FC<TableProps> = ({ rows, favorite }) => {
       <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
-            {!!favorite.length && <TableCell>Избранное</TableCell>}
+            {favorite && <TableCell>Избранное</TableCell>}
             <TableCell>Валюта</TableCell>
             <TableCell align="right">Единиц</TableCell>
             <TableCell align="right">Буквенный код</TableCell>
@@ -40,7 +40,7 @@ export const TableComponent: FC<TableProps> = ({ rows, favorite }) => {
             <TableRow
               key={row.Name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              {!!favorite.length && (
+              {favorite && (
                 <TableCell style={{ color: '#999' }}>
                   {
                     <Stack

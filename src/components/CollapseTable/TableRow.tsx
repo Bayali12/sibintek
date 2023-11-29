@@ -36,7 +36,7 @@ export const Row: React.FC<RowProps> = ({ row }) => {
       <TableRow>
         <TableCell style={{ padding: 0 }} colSpan={3}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <TableComponent rows={row.currencies} favorite={[]} />
+            <TableComponent rows={row.currencies} />
           </Collapse>
         </TableCell>
       </TableRow>
